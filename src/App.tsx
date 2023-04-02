@@ -7,12 +7,14 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  setupIonicReact
+  setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import RocketsTab from './pages/Rockets';
-import Tab2 from './pages/Tab2';
+import { ellipse, square, rocket } from 'ionicons/icons';
+
+import RocketsPage from './pages/RocketsPage';
+import RocketDetailsPage from './pages/RocketDetailsPage';
+import ClassesPage from './pages/ClassesPage';
 import Tab3 from './pages/Tab3';
 
 /* Core CSS required for Ionic components to work properly */
@@ -41,27 +43,26 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/rockets">
-            <RocketsTab />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/rockets" component={RocketsPage} />
+          <Route exact path="/rockets/:id" component={RocketDetailsPage} />
+          <Route exact path="/classes">
+            <ClassesPage />
           </Route>
           <Route path="/tab3">
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/rockets" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="roketsTab" href="/rockets">
-            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonIcon aria-hidden="true" icon={rocket} />
             <IonLabel>Rockets</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="classesTab" href="/classes">
             <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonLabel>Classes</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon aria-hidden="true" icon={square} />

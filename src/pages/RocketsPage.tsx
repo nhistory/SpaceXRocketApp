@@ -1,6 +1,12 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 import RocketsList from '../components/RocketsList';
-import './Rockets.css';
+import './RocketsPage.css';
 
 const Rockets: React.FC = () => {
   return (
